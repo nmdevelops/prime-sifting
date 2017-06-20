@@ -9,19 +9,27 @@
 //var iteration = 23;
 //var iteration = parseInt($("input#nValue").val());
 var numbers = [];
-var primes = [];
+var notPrimes = [];
 var iteration;
-// var prime = 2
+var prime = 2
+// var cycle = math.sqrt(iteration / prime
 
-var primeGenerator = (function(iteration) {
+var primeGenerator = function(iteration) {
 
   for (var index = 2; index <= iteration; index += 1) {
     numbers.push(index);
   }
+
+  for (var index = 1; prime * prime * index< iteration; index +=1) {
+    // if (notPrimes [-1]) < iteration {
+      notPrimes.push(prime * (prime * index));
+    //}
+     alert(notPrimes);
+  }
 console.log(numbers);
 
 
-})
+}
 
 
 
@@ -32,11 +40,16 @@ console.log(numbers);
 
 //front-end
 $(document).ready(function() {
+
   $(".nInput form").submit(function(event) {
+    console.log("beforetest");
+debugger;
+    event.preventDefault();
+    console.log("test");
+
 iteration = parseInt($("input#nValue").val());
 
 primeGenerator(iteration);
 //alert(numbers);
-    event.preventDefault();
   });
 });
