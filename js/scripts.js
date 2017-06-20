@@ -11,23 +11,53 @@
 var numbers = [];
 var notPrimes = [];
 var iteration;
-var prime = 2
-// var cycle = math.sqrt(iteration / prime
+var prime = 2;
+var multiple;
+var pos;
+//var primes = numbers.slice();
+
+for (var index = 2; index <= iteration; index += 1) {
+  numbers.push(index);
+}
+
 
 var primeGenerator = function(iteration) {
 
   for (var index = 2; index <= iteration; index += 1) {
     numbers.push(index);
   }
+  var primes = numbers.slice();
 
-  for (var index = 1; prime * prime * index< iteration; index +=1) {
-    // if (notPrimes [-1]) < iteration {
-      notPrimes.push(prime * (prime * index));
-    //}
-     alert(notPrimes);
+  alert("numbers: " + numbers);
+  alert("primes: " + primes);
+
+  for (var index = 1; index < numbers.length; index += 1) {
+
+    for (var index = 1; prime + (prime * index)< iteration; index +=1) {
+      multiple = (prime +(prime * index));
+console.log("primes before" + primes);
+console.log("current multiple" + multiple);
+      pos = primes.indexOf(multiple);
+      console.log("index position" + pos);
+
+//        notPrimes.push(multiple);
+      if (pos > 0) {
+         primes.splice(pos,1);
+      } else {
+        alert(prime)
+      }
+        console.log("primes after: " + primes);
+        // prime += 1;
+        // alert("multiple : " + multiple + "Position: " + pos)
+        // alert("primes: " + primes);
+    }
+      prime += 1;
   }
-console.log(numbers);
 
+
+
+//console.log(numbers);
+console.log(pos);
 
 }
 
@@ -42,14 +72,15 @@ console.log(numbers);
 $(document).ready(function() {
 
   $(".nInput form").submit(function(event) {
-    console.log("beforetest");
-debugger;
+  //  console.log("beforetest");
+//debugger;
     event.preventDefault();
-    console.log("test");
+  //  console.log("test");
 
 iteration = parseInt($("input#nValue").val());
 
 primeGenerator(iteration);
-//alert(numbers);
+//console.log(primes);
+//console.log(prime);
   });
 });
