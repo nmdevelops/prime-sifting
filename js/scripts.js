@@ -42,7 +42,7 @@ $(document).ready(function() {
     iteration = parseInt($("input#nValue").val());
     primeGenerator(iteration);
     $(".result").show();
-    $("#numbers").text(numbers);
+    $("#numbers").text("2 - " + iteration);
     $("#primes").text(primes);
   });
 });
